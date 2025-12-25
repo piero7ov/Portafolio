@@ -1,0 +1,163 @@
+{
+    "proyectos": [
+        {
+            "titulo": "Transcriptor clase v1.0",
+            "fecha_de_creacion": "2025-10-26",
+            "descripcion": "Transcriptor que captura videos o ventanas y devuelve el audio transcrito a texto (primera versión).",
+            "tecnologias": [
+                "Python"
+            ],
+            "imagen": "img/proyectos/transcriptor-v1.png",
+            "enlace_al_repositorio": "https://github.com/piero7ov/Transcriptor-clase-v1.0"
+        },
+        {
+            "titulo": "Currículum (web)",
+            "fecha_de_creacion": "2025-11-08",
+            "descripcion": "Currículum web personal con información y enlaces (proyecto para publicar como página).",
+            "tecnologias": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "GitHub Pages"
+            ],
+            "imagen": "img/proyectos/curriculum.png",
+            "enlace_al_repositorio": "https://github.com/piero7ov/curriculum"
+        },
+        {
+            "titulo": "Gestor con SQLite (Zoo)",
+            "fecha_de_creacion": "2025-11-08",
+            "descripcion": "Programa en Python para gestionar animales en un zoológico utilizando una base de datos SQLite.",
+            "tecnologias": [
+                "Python",
+                "SQLite"
+            ],
+            "imagen": "img/proyectos/gestor-sqlite.png",
+            "enlace_al_repositorio": "https://github.com/piero7ov/Gestor-con-Sqlite"
+        },
+        {
+            "titulo": "Simulacro Proyecto Intermodular (Tienda Flask)",
+            "fecha_de_creacion": "2025-11-09",
+            "descripcion": "Proyecto desarrollado con Flask y SQLite3 que simula el frontend dinámico de una tienda deportiva online.",
+            "tecnologias": [
+                "Python",
+                "Flask",
+                "SQLite",
+                "HTML",
+                "CSS"
+            ],
+            "imagen": "img/proyectos/simulacro-tienda-flask.png",
+            "enlace_al_repositorio": "https://github.com/piero7ov/simulacroproyectointermodular"
+        },
+        {
+            "titulo": "Login Aplicación",
+            "fecha_de_creacion": "2025-11-11",
+            "descripcion": "Login en HTML/CSS/JavaScript que valida usuarios desde un archivo JSON y muestra feedback visual (éxito/error) en pantalla con animaciones y efecto blur.",
+            "tecnologias": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "JSON"
+            ],
+            "imagen": "img/proyectos/login-aplicacion.png",
+            "enlace_al_repositorio": "https://github.com/piero7ov/login-aplicacion"
+        },
+        {
+            "titulo": "CRUD multitabla – liga_futbol",
+            "fecha_de_creacion": "2025-11-13",
+            "descripcion": "CRUD multitabla en Python para gestionar la base de datos liga_futbol (altas, bajas, modificaciones y consultas) sobre varias tablas relacionadas.",
+            "tecnologias": [
+                "Python",
+                "SQL",
+                "MySQL/MariaDB"
+            ],
+            "imagen": "img/proyectos/crud-liga-futbol.png",
+            "enlace_al_repositorio": "https://github.com/piero7ov/crud-liga-futbol"
+        },
+        {
+            "titulo": "RetroSystem Analyzer",
+            "fecha_de_creacion": "2025-11-14",
+            "descripcion": "Sistema de monitorización de recursos (CPU, RAM, disco y red) con Python: guarda mediciones en CSV, genera gráficas PNG con matplotlib, lanza alertas por umbral y exporta un resumen en JSON. Incluye dashboard web (HTML/CSS/JS) pensado para servirse con XAMPP.",
+            "tecnologias": [
+                "Python",
+                "psutil",
+                "matplotlib",
+                "CSV",
+                "JSON",
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "XAMPP"
+            ],
+            "imagen": "img/proyectos/retrosystem-analyzer.png",
+            "enlace_al_repositorio": "https://github.com/piero7ov/retrosystem-analyzer"
+        },
+        {
+            "titulo": "Generador de Imágenes con IA",
+            "fecha_de_creacion": "2025-11-23",
+            "descripcion": "Colección de scripts en Python para buscar y descargar imágenes de forma automática (Google Images y webs), con mejoras específicas para Windows (manejo de gzip/headers, depuración y parametrización).",
+            "tecnologias": [
+                "Python",
+                "Requests",
+                "BeautifulSoup",
+                "Web Scraping"
+            ],
+            "imagen": "img/proyectos/generador-imagenes-ia.png",
+            "enlace_al_repositorio": "https://github.com/piero7ov/generador-imagenes-ia"
+        },
+        {
+            "titulo": "Visualizador de Directorios",
+            "fecha_de_creacion": "2025-11-23",
+            "descripcion": "Herramienta en Python para visualizar el árbol de carpetas y archivos de una ruta, con cálculo de tamaños. Incluye versiones por consola (os.walk/árbol) y una interfaz gráfica en Tkinter (Treeview) con selector de carpeta.",
+            "tecnologias": [
+                "Python",
+                "Tkinter",
+                "os"
+            ],
+            "imagen": "img/proyectos/visualizador-directorios.png",
+            "enlace_al_repositorio": "https://github.com/piero7ov/visualizador-de-directorios"
+        },
+        {
+            "titulo": "Analizador de Disco",
+            "fecha_de_creacion": "2025-12-01",
+            "descripcion": "Aplicación de escritorio en Python que analiza una carpeta o unidad y muestra el TOP de archivos más grandes encontrados.",
+            "tecnologias": [
+                "Python"
+            ],
+            "imagen": "img/proyectos/analizador-disco.png",
+            "enlace_al_repositorio": "https://github.com/piero7ov/ANALIZADOR-DE-DISCO"
+        },
+        {
+            "titulo": "Easy PDF",
+            "fecha_de_creacion": "2025-12-03",
+            "descripcion": "Easy PDF: app local en Flask para unir, separar y convertir PDFs (Word/ODT, imágenes, rangos de páginas).",
+            "tecnologias": [
+                "Python",
+                "Flask",
+                "PyPDF2",
+                "Pillow",
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "LibreOffice"
+            ],
+            "imagen": "img/proyectos/easy-pdf.png",
+            "enlace_al_repositorio": "https://github.com/piero7ov/Easy-PDF"
+        },
+        {
+            "titulo": "Ollama – rutinas saludables",
+            "fecha_de_creacion": "2025-12-10",
+            "descripcion": "Mini app en PHP que consume la API local de Ollama (cURL) para generar rutinas saludables en español. Incluye formulario para personalizar la rutina y pruebas con modelos como Llama 3 y Qwen.",
+            "tecnologias": [
+                "PHP",
+                "Ollama",
+                "cURL",
+                "HTML",
+                "CSS",
+                "LLM (Llama 3)",
+                "LLM (Qwen)"
+            ],
+            "imagen": "img/proyectos/ollama-rutinas-saludables.png",
+            "enlace_al_repositorio": "https://github.com/piero7ov/ollama-rutinas-saludables"
+        }
+    ]
+}

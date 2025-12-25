@@ -340,3 +340,248 @@ footer {
     text-align: center;
     font-size: 12px;
 }
+
+/* =========================================================
+   PORTAFOLIO (ESTILO WINDOWS 95) - PRIMERA PASADA
+   - Sin :root
+   - Sin “modernizar” de más
+   - Mantiene flex y tu estructura actual
+   ========================================================= */
+
+/* Fondo tipo “escritorio” Win95 */
+body {
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    background: #008080;
+    /* escritorio teal clásico */
+    color: #000000;
+}
+
+/* Links como Windows clásico */
+a {
+    color: #0000EE;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #551A8B;
+}
+
+/* Header como “ventana” Win95 */
+header {
+    max-width: 1100px;
+    margin: 16px auto 0 auto;
+    background: #c0c0c0;
+    padding: 0;
+
+    /* Borde 3D (raised) */
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+}
+
+/* Tu h1 como barra de título */
+header h1 {
+    background: #000080;
+    /* azul Win95 */
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 10px;
+}
+
+/* Todo lo demás dentro del header con padding */
+#arriba,
+#barra-filtros {
+    padding: 12px 12px 0 12px;
+}
+
+#barra-filtros {
+    padding-bottom: 12px;
+}
+
+/* Subtítulo */
+#datos_principales h2 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Texto normal */
+#datos_principales p {
+    font-size: 13px;
+}
+
+/* Foto perfil (marco simple Win95) */
+#foto_perfil img {
+    background: #ffffff;
+    padding: 3px;
+
+    /* Borde hundido */
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* MAIN como otra “ventana” Win95 */
+main {
+    max-width: 1100px;
+    margin: 14px auto 16px auto;
+    background: #c0c0c0;
+
+    /* Borde 3D (raised) */
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+
+    padding: 14px;
+}
+
+/* Secciones: marco simple */
+#tecnologias,
+#proyectos {
+    background: #c0c0c0;
+    padding: 10px;
+    margin-bottom: 14px;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+}
+
+/* Títulos de sección tipo “mini title bar” */
+#tecnologias h2,
+#proyectos h2 {
+    background: #000080;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 8px;
+    margin-bottom: 10px;
+}
+
+/* FORM (buscador y selects) estilo Win95 */
+#buscador,
+#filtro-tecnologia,
+#orden {
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 13px;
+    padding: 6px 8px;
+    background: #ffffff;
+    color: #000000;
+
+    /* Borde hundido (inset) */
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* Botones estilo Win95 (raised) */
+.btn,
+#btn-limpiar {
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 13px;
+    background: #c0c0c0;
+    color: #000000;
+    padding: 6px 10px;
+    cursor: pointer;
+    text-decoration: none;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+}
+
+/* Efecto “presionado” */
+.btn:active,
+#btn-limpiar:active {
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* Chips tecnologías (flotantes luego, por ahora Win95 simples) */
+.tech-chip {
+    background: #dfdfdf;
+    font-size: 12px;
+
+    padding: 4px 8px;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+}
+
+/* Tarjetas de proyectos (raised) */
+.proyecto-card {
+    background: #c0c0c0;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+}
+
+/* Header de tarjeta */
+.proyecto-header {
+    padding-bottom: 6px;
+}
+
+.proyecto-titulo {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.proyecto-fecha {
+    font-size: 12px;
+}
+
+/* Imagen con marco hundido */
+.proyecto-media {
+    background: #ffffff;
+    padding: 3px;
+
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* Descripción */
+.proyecto-descripcion {
+    font-size: 13px;
+}
+
+/* Tags de tecnologías (pequeños) */
+.tag {
+    background: #dfdfdf;
+    font-size: 12px;
+    padding: 3px 7px;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+}
+
+/* Footer como barra inferior */
+footer {
+    max-width: 1100px;
+    margin: 0 auto 16px auto;
+    background: #c0c0c0;
+
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+}

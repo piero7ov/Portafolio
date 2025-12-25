@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El portafolio de Piero Olivares</title>
+
+    <!-- CSS externo (luego lo trabajamos) -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- =========================================================
+       SPLASH / CONSOLA INICIAL (BIOS/TERMINAL)
+       - Se mostrará solo 1 vez con localStorage (luego en JS)
+       ========================================================= -->
+    <section id="boot-screen" aria-hidden="false">
+        <div id="boot-window">
+            <header id="boot-header">
+                <p id="boot-title">PIERODEV BIOS v0.1</p>
+            </header>
+
+            <div id="boot-body">
+                <!-- Aquí JS irá imprimiendo líneas tipo consola -->
+                <pre id="boot-log" aria-live="polite"></pre>
+
+                <!-- Barra de progreso fake -->
+                <div id="boot-progress">
+                    <div id="boot-progress-bar" style="width: 0%"></div>
+                </div>
+
+                <!-- Mensaje final -->
+                <p id="boot-status"></p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+       HEADER
+       ========================================================= -->
+    <header>
+        <h1>El portafolio de Piero Olivares</h1>
+
+        <!-- Bloque arriba (igual a tu idea, pero con nombres más claros) -->
+        <div id="arriba">
+
+            <div id="datos_principales">
+                <h2>Desarrollador Web en formación</h2>
+
+                <!-- Info de contacto -->
+                <p>Correo: <a href="mailto:piero7ov@gmail.com">piero7ov@gmail.com</a></p>
+
+                <!-- Texto tipo máquina de escribir (estructura)
+             - JS luego pondrá: "Trabajo con: HTML • CSS • JS • Python..." (en rueda) -->
+                <p id="typing-wrap">
+                    <span id="typing-label">Trabajo con:</span>
+                    <span id="typing-text"></span>
+                    <span id="typing-cursor">|</span>
+                </p>
+            </div>
+
+            <!-- Foto -->
+            <div id="foto_perfil">
+                <img src="pierofoto2.jpg" alt="Foto de Piero Olivares" />
+            </div>
+
+        </div>
+
+        <!-- Barra simple para filtros/búsqueda (estructura) -->
+        <nav id="barra-filtros" aria-label="Filtros de proyectos">
+            <form id="filtros-form">
+                <input id="buscador" type="search" placeholder="Buscar proyectos..." />
+
+                <select id="filtro-tecnologia">
+                    <option value="">Todas las tecnologías</option>
+                    <!-- luego se llena desde JSON -->
+                </select>
+
+                <select id="orden">
+                    <option value="reciente">Más recientes</option>
+                    <option value="antiguo">Más antiguos</option>
+                    <option value="titulo">Por título</option>
+                </select>
+
+                <button type="button" id="btn-limpiar">Limpiar</button>
+            </form>
+        </nav>
+    </header>
+
+
+    <!-- =========================================================
+       MAIN
+       ========================================================= -->
+    <main>
+
+        <!-- Sección de tecnologías "chips" flotantes (solo estructura)
+         - Luego lo estilizamos como badges estilo Win95 -->
+        <section id="tecnologias" aria-label="Tecnologías principales">
+            <h2>Tecnologías</h2>
+
+            <div id="tech-chips">
+                <!-- Esto luego se genera dinámico, por ahora ponemos ejemplos -->
+                <span class="tech-chip">HTML</span>
+                <span class="tech-chip">CSS</span>
+                <span class="tech-chip">JavaScript</span>
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">PHP</span>
+                <span class="tech-chip">MySQL</span>
+            </div>
+        </section>
+
+
+        <!-- =========================================================
+         PROYECTOS (FLEX)
+         ========================================================= -->
+        <section id="proyectos" aria-label="Listado de proyectos">
+            <h2>Proyectos</h2>
+
+            <!-- Contenedor flex (lo estilizamos en CSS) -->
+            <div id="proyectos-grid">
+
+                <!-- ARTÍCULO MOCK 1 -->
+                <article class="proyecto-card">
+                    <header class="proyecto-header">
+                        <h3 class="proyecto-titulo">Easy PDF</h3>
+                        <p class="proyecto-fecha">2025-12-03</p>
+                    </header>
+
+                    <div class="proyecto-media">
+                        <img src="img/proyectos/easy-pdf.png" alt="Captura de Easy PDF" />
+                    </div>
+
+                    <div class="proyecto-body">
+                        <p class="proyecto-descripcion">
+                            App local para unir, separar y convertir PDFs (Word/ODT, imágenes, rangos de páginas).
+                        </p>
+
+                        <!-- Chips tecnologías (estructura) -->
+                        <div class="proyecto-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">PyPDF2</span>
+                        </div>
+                    </div>
+
+                    <footer class="proyecto-footer">
+                        <a class="btn" href="#" target="_blank" rel="noopener">Ver repo</a>
+                        <button class="btn" type="button">Detalles</button>
+                    </footer>
+                </article>
+
+
+                <!-- ARTÍCULO MOCK 2 -->
+                <article class="proyecto-card">
+                    <header class="proyecto-header">
+                        <h3 class="proyecto-titulo">RetroSystem Analyzer</h3>
+                        <p class="proyecto-fecha">2025-11-14</p>
+                    </header>
+
+                    <div class="proyecto-media">
+                        <img src="img/proyectos/retrosystem-analyzer.png" alt="Captura de RetroSystem Analyzer" />
+                    </div>
+
+                    <div class="proyecto-body">
+                        <p class="proyecto-descripcion">
+                            Monitorización de recursos (CPU, RAM, disco y red), con CSV, gráficas y dashboard web.
+                        </p>
+
+                        <div class="proyecto-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">psutil</span>
+                            <span class="tag">matplotlib</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">JS</span>
+                        </div>
+                    </div>
+
+                    <footer class="proyecto-footer">
+                        <a class="btn" href="#" target="_blank" rel="noopener">Ver repo</a>
+                        <button class="btn" type="button">Detalles</button>
+                    </footer>
+                </article>
+
+
+                <!-- ARTÍCULO MOCK 3 -->
+                <article class="proyecto-card">
+                    <header class="proyecto-header">
+                        <h3 class="proyecto-titulo">Login Aplicación</h3>
+                        <p class="proyecto-fecha">2025-11-11</p>
+                    </header>
+
+                    <div class="proyecto-media">
+                        <img src="img/proyectos/login-aplicacion.png" alt="Captura de Login Aplicación" />
+                    </div>
+
+                    <div class="proyecto-body">
+                        <p class="proyecto-descripcion">
+                            Login en HTML/CSS/JS validando usuarios desde JSON con mensajes visuales.
+                        </p>
+
+                        <div class="proyecto-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">JSON</span>
+                        </div>
+                    </div>
+
+                    <footer class="proyecto-footer">
+                        <a class="btn" href="#" target="_blank" rel="noopener">Ver repo</a>
+                        <button class="btn" type="button">Detalles</button>
+                    </footer>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================================
+         TEMPLATE PARA RENDER DESDE JSON (LO USAREMOS DESPUÉS)
+         ========================================================= -->
+        <template id="tpl-proyecto">
+            <article class="proyecto-card">
+                <header class="proyecto-header">
+                    <h3 class="proyecto-titulo"></h3>
+                    <p class="proyecto-fecha"></p>
+                </header>
+
+                <div class="proyecto-media">
+                    <img class="proyecto-img" src="" alt="" />
+                </div>
+
+                <div class="proyecto-body">
+                    <p class="proyecto-descripcion"></p>
+                    <div class="proyecto-tags"></div>
+                </div>
+
+                <footer class="proyecto-footer">
+                    <a class="btn btn-repo" href="#" target="_blank" rel="noopener">Ver repo</a>
+                    <button class="btn btn-detalles" type="button">Detalles</button>
+                </footer>
+            </article>
+        </template>
+
+    </main>
+
+
+    <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+    <footer>
+        <p>&copy; 2025 Piero Olivares. Todos los derechos reservados.</p>
+    </footer>
+
+
+    <!-- JS externo (luego lo trabajamos) -->
+    <script src="script.js"></script>
+</body>
+
+</html>

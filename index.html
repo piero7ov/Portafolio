@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>El portafolio de Piero Olivares</title>
+    <title>Mi Portfolio</title>
+
 
     <!-- CSS externo (luego lo trabajamos) -->
     <link rel="stylesheet" href="style.css" />
@@ -42,13 +43,20 @@
        HEADER
        ========================================================= -->
     <header>
-        <h1>El portafolio de Piero Olivares</h1>
+        <h1 id="titlebar">
+            <img id="logo" src="img/logo.png" alt="Logo de PIERODEV">
+            <span>PIERODEV</span>
+        </h1>
+
 
         <!-- Bloque arriba (igual a tu idea, pero con nombres más claros) -->
         <div id="arriba">
 
             <div id="datos_principales">
                 <h2>Desarrollador Web en formación</h2>
+                <p id="intro-corto">
+                    Hola, soy Piero. Hago proyectos web y herramientas en Python, y estoy en constante aprendizaje.
+                </p>
 
                 <!-- Info de contacto -->
                 <p>Correo: <a href="mailto:piero7ov@gmail.com">piero7ov@gmail.com</a></p>
@@ -56,10 +64,11 @@
                 <!-- Texto tipo máquina de escribir (estructura)
              - JS luego pondrá: "Trabajo con: HTML • CSS • JS • Python..." (en rueda) -->
                 <p id="typing-wrap">
-                    <span id="typing-label">Trabajo con:</span>
+                    <span id="typing-label">Perfil:</span>
                     <span id="typing-text"></span>
                     <span id="typing-cursor">|</span>
                 </p>
+
             </div>
 
             <!-- Foto -->
@@ -95,6 +104,13 @@
        MAIN
        ========================================================= -->
     <main>
+        <section id="sobre-mi" aria-label="Sobre mí">
+            <h2>Sobre mí</h2>
+            <p>
+                Me enfoco en proyectos prácticos: portafolios, herramientas de escritorio y utilidades web.
+                Me gusta el estilo retro y la automatización.
+            </p>
+        </section>
 
         <!-- Sección de tecnologías "chips" flotantes (solo estructura)
          - Luego lo estilizamos como badges estilo Win95 -->

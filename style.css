@@ -318,6 +318,7 @@ body>main {
 }
 
 /* Secciones (marco Win95) */
+#sobre-mi,
 #tecnologias,
 #proyectos {
     background: #c0c0c0;
@@ -331,6 +332,7 @@ body>main {
 }
 
 /* Mini barra de título por sección */
+#sobre-mi h2,
 #tecnologias h2,
 #proyectos h2 {
     background: #000080;

@@ -13,17 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Lista inicial (luego la podremos sacar del proyectos.json)
     const techWheel = [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Python",
-        "PHP",
-        "MySQL",
-        "Flask",
-        "SQLite",
-        "GitHub",
-        "XAMPP"
+        "Piero Olivares — Web dev en formación",
+        "HTML • CSS • JavaScript",
+        "Python • Flask • SQLite",
+        "PHP • MySQL • XAMPP",
+        "Automatización • Scripts • Herramientas"
     ];
+
 
     if (typingTextEl) {
         startTypewriter(typingTextEl, techWheel);

@@ -14,13 +14,14 @@
 <body>
 
     <!-- =========================================================
-       SPLASH / CONSOLA INICIAL (BIOS/TERMINAL)
-       - Se mostrará solo 1 vez con localStorage (luego en JS)
-       ========================================================= -->
+     SPLASH / CONSOLA INICIAL (CMD / TERMINAL WIN95)
+     - Se mostrará solo 1 vez con localStorage (controlado por JS)
+     ========================================================= -->
+
     <section id="boot-screen" aria-hidden="false">
         <div id="boot-window">
             <header id="boot-header">
-                <p id="boot-title">PIERODEV CMD</p>
+                <p id="boot-title">PIERODEV — Windows 95 Command Prompt</p>
             </header>
 
             <div id="boot-body">
@@ -44,7 +45,8 @@
        ========================================================= -->
     <header>
         <h1 id="titlebar">
-            <img id="logo" src="img/logo.png" alt="Logo de PIERODEV">
+            <img id="logo" src="img/solologo.png" alt="Logo de PIERODEV" onerror="this.style.display='none'">
+
             <span>PIERODEV</span>
         </h1>
 
@@ -81,8 +83,8 @@
         <!-- Barra simple para filtros/búsqueda (estructura) -->
         <nav id="barra-filtros" aria-label="Filtros de proyectos">
             <form id="filtros-form">
-                <input id="buscador" type="search" placeholder="Buscar proyectos..." />
-
+                <input id="buscador" name="buscador" type="search" placeholder="Buscar proyectos..."
+                    aria-label="Buscar proyectos" />
                 <select id="filtro-tecnologia">
                     <option value="">Todas las tecnologías</option>
                     <!-- luego se llena desde JSON -->

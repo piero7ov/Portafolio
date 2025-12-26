@@ -471,3 +471,17 @@ body>footer {
     text-align: center;
     font-size: 12px;
 }
+
+/* Titlebar con logo */
+#titlebar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#logo {
+    width: 16px;
+    height: 16px;
+    image-rendering: pixelated;
+    /* si tu logo es pixel art */
+}

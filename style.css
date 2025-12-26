@@ -17,10 +17,20 @@ body {
     font-family: Tahoma, Verdana, Arial, sans-serif;
     line-height: 1.4;
 
-    /* Escritorio Win95 */
-    background: #008080;
+    /* Fondo escritorio */
+    background-color: #008080;
+    /* respaldo */
+    background-image: url("img/fondo.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    /* para que ocupe toda la pantalla */
+    background-attachment: fixed;
+    /* opcional: que no se mueva al hacer scroll */
+
     color: #000000;
 }
+
 
 /* Links como Windows clásico */
 a {

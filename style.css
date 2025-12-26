@@ -581,3 +581,30 @@ body>footer {
         /* tamaño cuando baja */
     }
 }
+
+#datos_principales h2 {
+    font-size: 30px;
+    font-weight: 900;
+    display: inline-block;
+    animation: h2-pop 0.9s ease-out 1 both;
+    font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+}
+
+@keyframes h2-pop {
+    from {
+        transform: translateY(4px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    #datos_principales h2 {
+        animation: none;
+    }
+}

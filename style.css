@@ -535,15 +535,21 @@ body>footer {
     font-size: 12px;
 }
 
+/* =========================================================
+   SOBRE MÍ: texto a la izquierda + imagen a la derecha (FLEX)
+   - Sin tocar el HTML
+   - Sobreescribe el float anterior
+   ========================================================= */
+
 #sobre-mi {
     display: flex;
     flex-wrap: wrap;
-    /* para que en pantallas chicas baje */
+    /* si no cabe, baja a la siguiente línea */
     align-items: flex-start;
     gap: 16px;
 }
 
-/* El título ocupa todo el ancho */
+/* La barra "Sobre mí" ocupa todo el ancho */
 #sobre-mi h2 {
     flex: 0 0 100%;
 }
@@ -551,17 +557,27 @@ body>footer {
 /* El texto ocupa el espacio disponible */
 #sobre-mi p {
     flex: 1 1 600px;
-    /* crece, pero puede bajar */
+    /* ajusta el ancho mínimo del texto */
     margin: 0;
-    /* por si el navegador mete margen */
 }
 
-/* La imagen se queda fija a la derecha */
+/* Solo la imagen de "Sobre mí" (no la del banner) */
 #sobre-mi #foto_perfil {
-    flex: 0 0 160px;
-    width: 160px;
+    flex: 0 0 180px;
+    /* ancho fijo de la imagen */
+    width: 180px;
 
-    /* anulamos el float anterior */
     float: none;
+    /* anula tu float anterior */
     margin: 0;
+    /* anula márgenes del float */
+}
+
+/* Responsive: en pantallas chicas, que la imagen baje */
+@media (max-width: 700px) {
+    #sobre-mi #foto_perfil {
+        flex: 0 0 100%;
+        width: 160px;
+        /* tamaño cuando baja */
+    }
 }

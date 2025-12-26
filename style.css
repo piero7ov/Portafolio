@@ -506,3 +506,98 @@ body>footer {
     text-align: center;
     font-size: 12px;
 }
+
+/* =========================================================
+   AFINADO WIN95 (EXTRA) - Pegar al final
+   ========================================================= */
+
+/* 1) Botones: foco punteado (muy Win95) */
+.btn:focus,
+#btn-limpiar:focus {
+    outline: 1px dotted #000000;
+    outline-offset: -4px;
+    /* se mete "adentro" del botón */
+}
+
+/* 2) Inputs: foco punteado y sin estilos raros */
+#buscador:focus,
+#filtro-tecnologia:focus,
+#orden:focus {
+    outline: 1px dotted #000000;
+    outline-offset: 2px;
+}
+
+/* 3) Tarjetas como mini-ventanas (titlebar dentro del article) */
+.proyecto-card {
+    padding: 0;
+    /* ahora el padding lo damos por partes */
+}
+
+/* Barra de título dentro de cada tarjeta */
+.proyecto-header {
+    background: #000080;
+    color: #ffffff;
+    padding: 5px 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Texto de título y fecha dentro de barra azul */
+.proyecto-titulo {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.proyecto-fecha {
+    font-size: 11px;
+    opacity: 0.95;
+}
+
+/* Contenido interno de la tarjeta */
+.proyecto-media,
+.proyecto-body,
+.proyecto-footer {
+    padding: 10px;
+}
+
+/* La imagen ya tiene borde hundido, pero se ve mejor con padding del bloque */
+.proyecto-media {
+    height: 160px;
+}
+
+/* Footer estilo “panel inferior” */
+.proyecto-footer {
+    background: #c0c0c0;
+    border-top: 1px solid #808080;
+}
+
+/* 4) Tags: que se vean como “labels” de Win95 */
+.tag {
+    background: #c0c0c0;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #404040;
+    border-bottom: 1px solid #404040;
+}
+
+/* 5) Tecnologías: chips con look más consistente */
+.tech-chip {
+    background: #c0c0c0;
+}
+
+/* 6) Status bar (estructura lista, aunque no exista en HTML aún)
+      Si mañana agregas <div class="statusbar">Ready</div>, ya queda Win95 */
+.statusbar {
+    margin-top: 10px;
+    padding: 6px 8px;
+    background: #c0c0c0;
+
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+
+    font-size: 12px;
+}

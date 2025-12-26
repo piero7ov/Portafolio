@@ -1,6 +1,5 @@
 /* =========================================================
    style.css (BASE + CMD + WIN95)
-   - Sin :root
    - CMD (boot) aislado
    - Portafolio estilo Windows 95 (primera pasada)
    ========================================================= */
@@ -243,8 +242,10 @@ body>header h1 {
 }
 
 #typing-text {
-    min-width: 120px;
+    min-width: 0;
+    display: inline;
 }
+
 
 #typing-cursor {
     font-weight: bold;

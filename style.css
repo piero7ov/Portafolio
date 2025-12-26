@@ -82,7 +82,6 @@ img {
 
 #boot-header {
     padding: 6px 8px;
-
     background: #000080;
     color: #ffffff;
 
@@ -92,7 +91,6 @@ img {
 }
 
 #boot-title {
-    font-family: Tahoma, Verdana, Arial, sans-serif;
     font-size: 13px;
     font-weight: bold;
 }
@@ -147,7 +145,6 @@ img {
 }
 
 #boot-status {
-    font-family: Tahoma, Verdana, Arial, sans-serif;
     font-size: 12px;
     color: #000000;
 }
@@ -177,7 +174,7 @@ body>header h1 {
     font-size: 14px;
     font-weight: bold;
     padding: 0;
-    /* lo controlamos con #titlebar */
+    /* controlado por #titlebar */
 }
 
 /* Titlebar con logo */
@@ -222,13 +219,44 @@ body>header h1 {
     gap: 6px;
 }
 
+/* HERO: titular grande */
 #datos_principales h2 {
-    font-size: 14px;
+    font-size: 28px;
     font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 4px;
 }
 
+/* Texto base del header */
 #datos_principales p {
     font-size: 13px;
+}
+
+/* Intro corta (más protagonista) */
+#intro-corto {
+    font-size: 14px;
+    line-height: 1.35;
+    max-width: 620px;
+}
+
+/* Typing */
+#typing-wrap {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+/* evita que el cursor quede “lejos” */
+#typing-text {
+    min-width: 0;
+    display: inline;
+}
+
+#typing-cursor {
+    font-weight: bold;
 }
 
 /* Foto */
@@ -247,29 +275,6 @@ body>header h1 {
     border-bottom: 2px solid #ffffff;
 }
 
-/* Intro corta */
-#intro-corto {
-    max-width: 520px;
-}
-
-/* Typing (estructura) */
-#typing-wrap {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-/* IMPORTANTE: esto evita que el cursor quede “lejos” */
-#typing-text {
-    min-width: 0;
-    display: inline;
-}
-
-#typing-cursor {
-    font-weight: bold;
-}
-
 /* -------- FILTROS (flex) -------- */
 #filtros-form {
     display: flex;
@@ -282,17 +287,15 @@ body>header h1 {
 #buscador,
 #filtro-tecnologia,
 #orden {
-    font-family: Tahoma, Verdana, Arial, sans-serif;
     font-size: 13px;
     padding: 6px 8px;
     background: #ffffff;
     color: #000000;
 
-    /* Quitamos bordes “extra” del navegador */
     border: none;
     outline: none;
 
-    /* Borde hundido */
+    /* hundido */
     border-top: 2px solid #404040;
     border-left: 2px solid #404040;
     border-right: 2px solid #ffffff;
@@ -302,7 +305,6 @@ body>header h1 {
 /* Botones Win95 */
 .btn,
 #btn-limpiar {
-    font-family: Tahoma, Verdana, Arial, sans-serif;
     font-size: 13px;
     background: #c0c0c0;
     color: #000000;
@@ -313,7 +315,7 @@ body>header h1 {
     border: none;
     outline: none;
 
-    /* Raised */
+    /* raised */
     border-top: 2px solid #ffffff;
     border-left: 2px solid #ffffff;
     border-right: 2px solid #404040;
@@ -322,11 +324,25 @@ body>header h1 {
 
 .btn:active,
 #btn-limpiar:active {
-    /* Pressed */
+    /* pressed */
     border-top: 2px solid #404040;
     border-left: 2px solid #404040;
     border-right: 2px solid #ffffff;
     border-bottom: 2px solid #ffffff;
+}
+
+/* Focus punteado (Win95 real) */
+.btn:focus,
+#btn-limpiar:focus {
+    outline: 1px dotted #000000;
+    outline-offset: -4px;
+}
+
+#buscador:focus,
+#filtro-tecnologia:focus,
+#orden:focus {
+    outline: 1px dotted #000000;
+    outline-offset: 2px;
 }
 
 /* -------- MAIN PRINCIPAL -------- */
@@ -361,6 +377,11 @@ body>main {
     border-bottom: 2px solid #404040;
 }
 
+/* Quitar hueco final extra */
+#proyectos {
+    margin-bottom: 0;
+}
+
 /* Mini barra de título por sección */
 #sobre-mi h2,
 #tecnologias h2,
@@ -373,7 +394,7 @@ body>main {
     margin-bottom: 10px;
 }
 
-/* Chips tecnologías (flex) */
+/* -------- TECNOLOGÍAS -------- */
 #tech-chips {
     margin-top: 10px;
     display: flex;
@@ -382,7 +403,7 @@ body>main {
 }
 
 .tech-chip {
-    background: #dfdfdf;
+    background: #c0c0c0;
     font-size: 12px;
     padding: 4px 8px;
 
@@ -400,12 +421,12 @@ body>main {
     gap: 14px;
 }
 
+/* Tarjetas como mini-ventanas */
 .proyecto-card {
     width: 320px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 12px;
 
     background: #c0c0c0;
 
@@ -413,37 +434,48 @@ body>main {
     border-left: 2px solid #ffffff;
     border-right: 2px solid #404040;
     border-bottom: 2px solid #404040;
+
+    padding: 0;
+    /* padding por partes */
 }
 
+/* Titlebar dentro del article */
 .proyecto-header {
+    background: #000080;
+    color: #ffffff;
+    padding: 5px 8px;
+
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    gap: 10px;
-    padding-bottom: 6px;
+    align-items: center;
 }
 
 .proyecto-titulo {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
 }
 
 .proyecto-fecha {
-    font-size: 12px;
+    font-size: 11px;
+    opacity: 0.95;
+}
+
+/* Contenido interno */
+.proyecto-media,
+.proyecto-body,
+.proyecto-footer {
+    padding: 10px;
 }
 
 .proyecto-media {
     background: #ffffff;
-    padding: 3px;
+    height: 160px;
+    overflow: hidden;
 
     border-top: 2px solid #404040;
     border-left: 2px solid #404040;
     border-right: 2px solid #ffffff;
     border-bottom: 2px solid #ffffff;
-
-    width: 100%;
-    height: 160px;
-    overflow: hidden;
 }
 
 .proyecto-media img {
@@ -469,14 +501,14 @@ body>main {
 }
 
 .tag {
-    background: #dfdfdf;
+    background: #c0c0c0;
     font-size: 12px;
     padding: 3px 7px;
 
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #404040;
+    border-bottom: 1px solid #404040;
 }
 
 .proyecto-footer {
@@ -484,11 +516,9 @@ body>main {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
-}
 
-/* Si no quieres hueco extra al final */
-#proyectos {
-    margin-bottom: 0;
+    background: #c0c0c0;
+    border-top: 1px solid #808080;
 }
 
 /* -------- FOOTER PRINCIPAL -------- */
@@ -507,88 +537,7 @@ body>footer {
     font-size: 12px;
 }
 
-/* =========================================================
-   AFINADO WIN95 (EXTRA) - Pegar al final
-   ========================================================= */
-
-/* 1) Botones: foco punteado (muy Win95) */
-.btn:focus,
-#btn-limpiar:focus {
-    outline: 1px dotted #000000;
-    outline-offset: -4px;
-    /* se mete "adentro" del botón */
-}
-
-/* 2) Inputs: foco punteado y sin estilos raros */
-#buscador:focus,
-#filtro-tecnologia:focus,
-#orden:focus {
-    outline: 1px dotted #000000;
-    outline-offset: 2px;
-}
-
-/* 3) Tarjetas como mini-ventanas (titlebar dentro del article) */
-.proyecto-card {
-    padding: 0;
-    /* ahora el padding lo damos por partes */
-}
-
-/* Barra de título dentro de cada tarjeta */
-.proyecto-header {
-    background: #000080;
-    color: #ffffff;
-    padding: 5px 8px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Texto de título y fecha dentro de barra azul */
-.proyecto-titulo {
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.proyecto-fecha {
-    font-size: 11px;
-    opacity: 0.95;
-}
-
-/* Contenido interno de la tarjeta */
-.proyecto-media,
-.proyecto-body,
-.proyecto-footer {
-    padding: 10px;
-}
-
-/* La imagen ya tiene borde hundido, pero se ve mejor con padding del bloque */
-.proyecto-media {
-    height: 160px;
-}
-
-/* Footer estilo “panel inferior” */
-.proyecto-footer {
-    background: #c0c0c0;
-    border-top: 1px solid #808080;
-}
-
-/* 4) Tags: que se vean como “labels” de Win95 */
-.tag {
-    background: #c0c0c0;
-    border-top: 1px solid #ffffff;
-    border-left: 1px solid #ffffff;
-    border-right: 1px solid #404040;
-    border-bottom: 1px solid #404040;
-}
-
-/* 5) Tecnologías: chips con look más consistente */
-.tech-chip {
-    background: #c0c0c0;
-}
-
-/* 6) Status bar (estructura lista, aunque no exista en HTML aún)
-      Si mañana agregas <div class="statusbar">Ready</div>, ya queda Win95 */
+/* -------- Statusbar (lista para usar cuando la agregues en HTML) -------- */
 .statusbar {
     margin-top: 10px;
     padding: 6px 8px;

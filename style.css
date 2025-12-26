@@ -1,7 +1,8 @@
 /* =========================================================
    style.css (BASE + CMD + WIN95)
+   - Sin :root
    - CMD (boot) aislado
-   - Portafolio estilo Windows 95 (primera pasada)
+   - Portafolio estilo Windows 95
    ========================================================= */
 
 /* -------- RESET BÁSICO -------- */
@@ -16,20 +17,17 @@ body {
     font-family: Tahoma, Verdana, Arial, sans-serif;
     line-height: 1.4;
 
-    /* Fondo escritorio */
+    /* Fondo escritorio con imagen */
     background-color: #008080;
     /* respaldo */
     background-image: url("img/fondo.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    /* para que ocupe toda la pantalla */
     background-attachment: fixed;
-    /* opcional: que no se mueva al hacer scroll */
 
     color: #000000;
 }
-
 
 /* Links como Windows clásico */
 a {
@@ -172,13 +170,29 @@ body>header {
     border-bottom: 2px solid #404040;
 }
 
-/* Barra de título del header */
+/* Barra de título del header (h1) */
 body>header h1 {
     background: #000080;
     color: #ffffff;
     font-size: 14px;
     font-weight: bold;
+    padding: 0;
+    /* lo controlamos con #titlebar */
+}
+
+/* Titlebar con logo */
+#titlebar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     padding: 6px 10px;
+}
+
+#logo {
+    width: 16px;
+    height: 16px;
+    image-rendering: pixelated;
+    /* si tu logo es pixel/retro */
 }
 
 /* Contenido interno del header */
@@ -233,6 +247,11 @@ body>header h1 {
     border-bottom: 2px solid #ffffff;
 }
 
+/* Intro corta */
+#intro-corto {
+    max-width: 520px;
+}
+
 /* Typing (estructura) */
 #typing-wrap {
     display: flex;
@@ -241,11 +260,11 @@ body>header h1 {
     align-items: center;
 }
 
+/* IMPORTANTE: esto evita que el cursor quede “lejos” */
 #typing-text {
     min-width: 0;
     display: inline;
 }
-
 
 #typing-cursor {
     font-weight: bold;
@@ -259,6 +278,7 @@ body>header h1 {
     align-items: center;
 }
 
+/* Inputs / selects Win95 */
 #buscador,
 #filtro-tecnologia,
 #orden {
@@ -268,6 +288,11 @@ body>header h1 {
     background: #ffffff;
     color: #000000;
 
+    /* Quitamos bordes “extra” del navegador */
+    border: none;
+    outline: none;
+
+    /* Borde hundido */
     border-top: 2px solid #404040;
     border-left: 2px solid #404040;
     border-right: 2px solid #ffffff;
@@ -285,6 +310,10 @@ body>header h1 {
     cursor: pointer;
     text-decoration: none;
 
+    border: none;
+    outline: none;
+
+    /* Raised */
     border-top: 2px solid #ffffff;
     border-left: 2px solid #ffffff;
     border-right: 2px solid #404040;
@@ -293,6 +322,7 @@ body>header h1 {
 
 .btn:active,
 #btn-limpiar:active {
+    /* Pressed */
     border-top: 2px solid #404040;
     border-left: 2px solid #404040;
     border-right: 2px solid #ffffff;
@@ -456,6 +486,11 @@ body>main {
     flex-wrap: wrap;
 }
 
+/* Si no quieres hueco extra al final */
+#proyectos {
+    margin-bottom: 0;
+}
+
 /* -------- FOOTER PRINCIPAL -------- */
 body>footer {
     max-width: 1100px;
@@ -470,18 +505,4 @@ body>footer {
     padding: 10px;
     text-align: center;
     font-size: 12px;
-}
-
-/* Titlebar con logo */
-#titlebar {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-#logo {
-    width: 16px;
-    height: 16px;
-    image-rendering: pixelated;
-    /* si tu logo es pixel art */
 }

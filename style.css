@@ -181,15 +181,13 @@ body>header h1 {
 #titlebar {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     padding: 6px 10px;
 }
 
 #logo {
-    width: 16px;
-    height: 16px;
-    image-rendering: pixelated;
-    /* si tu logo es pixel/retro */
+    width: 25px;
+    height: 25px;
 }
 
 /* Contenido interno del header */
@@ -537,16 +535,33 @@ body>footer {
     font-size: 12px;
 }
 
-/* -------- Statusbar (lista para usar cuando la agregues en HTML) -------- */
-.statusbar {
-    margin-top: 10px;
-    padding: 6px 8px;
-    background: #c0c0c0;
+#sobre-mi {
+    display: flex;
+    flex-wrap: wrap;
+    /* para que en pantallas chicas baje */
+    align-items: flex-start;
+    gap: 16px;
+}
 
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
+/* El título ocupa todo el ancho */
+#sobre-mi h2 {
+    flex: 0 0 100%;
+}
 
-    font-size: 12px;
+/* El texto ocupa el espacio disponible */
+#sobre-mi p {
+    flex: 1 1 600px;
+    /* crece, pero puede bajar */
+    margin: 0;
+    /* por si el navegador mete margen */
+}
+
+/* La imagen se queda fija a la derecha */
+#sobre-mi #foto_perfil {
+    flex: 0 0 160px;
+    width: 160px;
+
+    /* anulamos el float anterior */
+    float: none;
+    margin: 0;
 }

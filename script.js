@@ -1,15 +1,51 @@
 /* =========================================================
    script.js
-   - Boot screen tipo Terminal (Win95 / MS-DOS) + localStorage
-   - Interacción: al terminar, espera ENTER para continuar
+   - CMD splash (Win95 / MS-DOS) + localStorage + ENTER
+   - Typewriter: "Trabajo con: ..." en loop
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+    // =========================
+    // TYPEWRITER (PORTAFOLIO)
+    // =========================
+    const typingTextEl = document.getElementById("typing-text");
+    const typingCursorEl = document.getElementById("typing-cursor");
+
+    // Lista inicial (luego la podremos sacar del proyectos.json)
+    const techWheel = [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Python",
+        "PHP",
+        "MySQL",
+        "Flask",
+        "SQLite",
+        "GitHub",
+        "XAMPP"
+    ];
+
+    if (typingTextEl) {
+        startTypewriter(typingTextEl, techWheel);
+    }
+
+    // Cursor parpadeante (opcional, pero queda bacán)
+    if (typingCursorEl) {
+        setInterval(() => {
+            typingCursorEl.style.visibility =
+                typingCursorEl.style.visibility === "hidden" ? "visible" : "hidden";
+        }, 450);
+    }
+
+    // =========================
+    // CMD / BOOT SCREEN
+    // =========================
     const bootScreen = document.getElementById("boot-screen");
     const bootLog = document.getElementById("boot-log");
     const bootBar = document.getElementById("boot-progress-bar");
     const bootStatus = document.getElementById("boot-status");
 
+    // Si no existe el boot screen, no hacemos nada con el CMD
     if (!bootScreen || !bootLog || !bootBar || !bootStatus) return;
 
     const STORAGE_KEY = "pierodev_boot_seen";
@@ -24,12 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const seenBoot = localStorage.getItem(STORAGE_KEY) === "1";
 
+    // Si ya se vio una vez, ocultar inmediato
     if (seenBoot) {
         hideBoot();
         return;
     }
 
-    // Ejecuta boot y al final espera ENTER
+    // Si no se ha visto, correr animación y esperar ENTER
     runBootSequence()
         .then(waitForEnter)
         .then(() => {
@@ -38,9 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     /* =========================================================
-       Helpers
+       Helpers CMD
        ========================================================= */
-
     function hideBoot() {
         bootScreen.classList.add("hidden");
         bootScreen.setAttribute("aria-hidden", "true");
@@ -55,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
         bootBar.style.width = p + "%";
     }
 
-    // Typewriter
     async function typeText(targetEl, text, speedMin = 6, speedMax = 16) {
         for (let i = 0; i < text.length; i++) {
             targetEl.textContent += text[i];
@@ -71,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
         await sleep(delayAfter);
     }
 
-    // Imprime con prompt tipo DOS
     async function dosCommand(cmd, outputLines = [], delayAfterCmd = 120) {
         await printLine(`C:\\PIERODEV>${cmd}`, 40);
         await sleep(delayAfterCmd);
@@ -80,20 +114,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    /* =========================================================
-       Boot sequence (Terminal style)
-       ========================================================= */
     async function runBootSequence() {
         bootLog.textContent = "";
         bootStatus.textContent = "";
         setProgress(0);
 
-        // Encabezado tipo MS-DOS / Windows 95
         await printLine("Microsoft(R) Windows 95");
         await printLine("(C)Copyright Microsoft Corp 1981-1995.");
         await printLine("");
 
-        // Simulación de comandos + progreso
         const steps = [
             { pct: 10, cmd: "ver", out: ["MS-DOS Version 7.0"] },
             { pct: 20, cmd: "mem /c", out: ["Memory status: OK", "Conventional: 640K", "Extended: 64MB"] },
@@ -111,22 +140,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         bootStatus.textContent = "System ready.";
-        await sleep(300);
+        await sleep(250);
     }
 
-    /* =========================================================
-       Esperar ENTER para continuar (interacción)
-       ========================================================= */
     function waitForEnter() {
         return new Promise((resolve) => {
             bootStatus.textContent = "Press ENTER to continue...";
 
-            // Cursor parpadeante simple (sin CSS extra)
             let showCursor = true;
             const cursorTimer = setInterval(() => {
                 showCursor = !showCursor;
-                // Simula un cursor al final del log
-                // (No modifica el log para no romper líneas)
                 bootStatus.textContent = showCursor
                     ? "Press ENTER to continue... _"
                     : "Press ENTER to continue...  ";
@@ -142,5 +165,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
             document.addEventListener("keydown", onKeyDown);
         });
+    }
+
+    /* =========================================================
+       TYPEWRITER (funciones)
+       ========================================================= */
+    function startTypewriter(targetEl, words) {
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        const typeSpeed = 70;     // velocidad escribiendo
+        const deleteSpeed = 45;   // velocidad borrando
+        const pauseAfterType = 900;
+        const pauseAfterDelete = 220;
+
+        async function tick() {
+            const currentWord = words[wordIndex];
+
+            if (!deleting) {
+                // Escribiendo
+                charIndex++;
+                targetEl.textContent = currentWord.slice(0, charIndex);
+
+                if (charIndex === currentWord.length) {
+                    // Pausa al terminar palabra
+                    await sleep(pauseAfterType);
+                    deleting = true;
+                } else {
+                    await sleep(typeSpeed);
+                }
+            } else {
+                // Borrando
+                charIndex--;
+                targetEl.textContent = currentWord.slice(0, charIndex);
+
+                if (charIndex <= 0) {
+                    deleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    await sleep(pauseAfterDelete);
+                } else {
+                    await sleep(deleteSpeed);
+                }
+            }
+
+            tick();
+        }
+
+        tick();
     }
 });

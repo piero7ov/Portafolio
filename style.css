@@ -1,18 +1,21 @@
 /* =========================================================
    style.css (BASE + CMD + WIN95)
-   - Sin :root
    - CMD (boot) aislado
    - Portafolio estilo Windows 95
    ========================================================= */
 
-/* -------- RESET BÁSICO -------- */
+/* =========================================================
+   RESET BÁSICO
+   ========================================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* -------- BASE GENERAL -------- */
+/* =========================================================
+   BASE GENERAL
+   ========================================================= */
 body {
     font-family: Tahoma, Verdana, Arial, sans-serif;
     line-height: 1.4;
@@ -45,23 +48,23 @@ img {
     display: block;
 }
 
-/* Ocultar con clase */
+/* Utilidad */
 .hidden {
     display: none !important;
 }
 
 /* =========================================================
-   BOOT SCREEN (CMD WIN95)  -> SOLO afecta al splash
+   BOOT SCREEN (CMD WIN95) -> SOLO afecta al splash
    ========================================================= */
-
 #boot-screen {
     position: fixed;
     inset: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
 
+    z-index: 9999;
     background: #000000;
     color: #ffffff;
 }
@@ -69,6 +72,7 @@ img {
 #boot-window {
     width: min(880px, 92vw);
     height: min(520px, 80vh);
+
     display: flex;
     flex-direction: column;
 
@@ -99,6 +103,7 @@ img {
     flex: 1;
     display: flex;
     flex-direction: column;
+
     padding: 8px;
     gap: 8px;
 
@@ -128,14 +133,14 @@ img {
 #boot-progress {
     height: 14px;
     width: 100%;
+
     background: #c0c0c0;
+    padding: 2px;
 
     border-top: 2px solid #404040;
     border-left: 2px solid #404040;
     border-right: 2px solid #ffffff;
     border-bottom: 2px solid #ffffff;
-
-    padding: 2px;
 }
 
 #boot-progress-bar {
@@ -150,16 +155,13 @@ img {
 }
 
 /* =========================================================
-   PORTAFOLIO (WIN95) -> SOLO aplica a los hijos directos del body
-   Evita que toque el header del CMD
+   CONTENEDORES PRINCIPALES (WIN95)
    ========================================================= */
-
-/* -------- HEADER PRINCIPAL -------- */
-body>header {
+body>header,
+body>main,
+body>footer {
     max-width: 1100px;
-    margin: 16px auto 0 auto;
     background: #c0c0c0;
-    padding: 0;
 
     border-top: 2px solid #ffffff;
     border-left: 2px solid #ffffff;
@@ -167,7 +169,15 @@ body>header {
     border-bottom: 2px solid #404040;
 }
 
-/* Barra de título del header (h1) */
+/* =========================================================
+   HEADER PRINCIPAL
+   ========================================================= */
+body>header {
+    margin: 16px auto 0 auto;
+    padding: 0;
+}
+
+/* Barra de título (h1) */
 body>header h1 {
     background: #000080;
     color: #ffffff;
@@ -190,7 +200,7 @@ body>header h1 {
     height: 25px;
 }
 
-/* Contenido interno del header */
+/* Paddings internos */
 #arriba,
 #barra-filtros {
     padding: 12px 12px 0 12px;
@@ -200,29 +210,48 @@ body>header h1 {
     padding-bottom: 12px;
 }
 
-/* Contenedor "arriba" (flex) */
+/* Bloque arriba */
 #arriba {
     margin-top: 12px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 16px;
     flex-wrap: wrap;
 }
 
-/* Bloque texto izquierda */
+/* Bloque texto */
 #datos_principales {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-/* HERO: titular grande */
+/* H2 destacado */
 #datos_principales h2 {
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: 900;
     line-height: 1.1;
     margin-bottom: 4px;
+
+    display: inline-block;
+    font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+
+    animation: h2-pop 0.9s ease-out 1 both;
+}
+
+@keyframes h2-pop {
+    from {
+        transform: translateY(4px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Texto base del header */
@@ -230,8 +259,8 @@ body>header h1 {
     font-size: 13px;
 }
 
-/* Intro corta (más protagonista) */
-#intro-corto {
+/* Intro (sobrescribe el 13px del header) */
+#datos_principales p#intro-corto {
     font-size: 14px;
     line-height: 1.35;
     max-width: 620px;
@@ -243,11 +272,11 @@ body>header h1 {
     gap: 6px;
     flex-wrap: wrap;
     align-items: center;
+
     margin-top: 6px;
     font-size: 14px;
 }
 
-/* evita que el cursor quede “lejos” */
 #typing-text {
     min-width: 0;
     display: inline;
@@ -257,13 +286,13 @@ body>header h1 {
     font-weight: bold;
 }
 
-/* Foto */
-#foto_perfil {
-    width: 140px;
-    flex: 0 0 auto;
-}
+/* =========================================================
+   FOTOS: IDs únicos (header y sobre-mi)
+   ========================================================= */
 
-#foto_perfil img {
+/* Marco Win95 compartido */
+#foto_perfil_header img,
+#foto_perfil_sobre img {
     background: #ffffff;
     padding: 3px;
 
@@ -273,7 +302,25 @@ body>header h1 {
     border-bottom: 2px solid #ffffff;
 }
 
-/* -------- FILTROS (flex) -------- */
+/* Foto del HEADER */
+#foto_perfil_header {
+    width: 140px;
+    flex: 0 0 auto;
+}
+
+/* Foto de SOBRE MÍ */
+#foto_perfil_sobre {
+    flex: 0 0 180px;
+    width: 180px;
+
+    /* redondeo solo aquí (si lo quieres) */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* =========================================================
+   FILTROS (HEADER)
+   ========================================================= */
 #filtros-form {
     display: flex;
     gap: 10px;
@@ -281,39 +328,40 @@ body>header h1 {
     align-items: center;
 }
 
-/* Inputs / selects Win95 */
+/* Inputs / selects Win95 (hundido) */
 #buscador,
 #filtro-tecnologia,
 #orden {
     font-size: 13px;
     padding: 6px 8px;
+
     background: #ffffff;
     color: #000000;
 
     border: none;
     outline: none;
 
-    /* hundido */
     border-top: 2px solid #404040;
     border-left: 2px solid #404040;
     border-right: 2px solid #ffffff;
     border-bottom: 2px solid #ffffff;
 }
 
-/* Botones Win95 */
+/* Botones Win95 (raised) */
 .btn,
 #btn-limpiar {
     font-size: 13px;
+    padding: 6px 10px;
+
     background: #c0c0c0;
     color: #000000;
-    padding: 6px 10px;
+
     cursor: pointer;
     text-decoration: none;
 
     border: none;
     outline: none;
 
-    /* raised */
     border-top: 2px solid #ffffff;
     border-left: 2px solid #ffffff;
     border-right: 2px solid #404040;
@@ -322,14 +370,13 @@ body>header h1 {
 
 .btn:active,
 #btn-limpiar:active {
-    /* pressed */
     border-top: 2px solid #404040;
     border-left: 2px solid #404040;
     border-right: 2px solid #ffffff;
     border-bottom: 2px solid #ffffff;
 }
 
-/* Focus punteado (Win95 real) */
+/* Focus punteado Win95 */
 .btn:focus,
 #btn-limpiar:focus {
     outline: 1px dotted #000000;
@@ -343,17 +390,11 @@ body>header h1 {
     outline-offset: 2px;
 }
 
-/* -------- MAIN PRINCIPAL -------- */
+/* =========================================================
+   MAIN PRINCIPAL
+   ========================================================= */
 body>main {
-    max-width: 1100px;
     margin: 14px auto 16px auto;
-    background: #c0c0c0;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-
     padding: 14px;
 
     display: flex;
@@ -375,24 +416,57 @@ body>main {
     border-bottom: 2px solid #404040;
 }
 
-/* Quitar hueco final extra */
 #proyectos {
     margin-bottom: 0;
 }
 
-/* Mini barra de título por sección */
+/* Barra azul por sección */
 #sobre-mi h2,
 #tecnologias h2,
 #proyectos h2 {
     background: #000080;
     color: #ffffff;
+
     font-size: 13px;
     font-weight: bold;
+
     padding: 4px 8px;
     margin-bottom: 10px;
 }
 
-/* -------- TECNOLOGÍAS -------- */
+/* =========================================================
+   SOBRE MÍ (FLEX) + CONSISTENCIA DE TEXTO
+   ========================================================= */
+#sobre-mi {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+#sobre-mi h2 {
+    flex: 0 0 100%;
+}
+
+#sobre-mi p {
+    flex: 1 1 600px;
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+/* En pantallas chicas baja la imagen de sobre-mi */
+@media (max-width: 700px) {
+    #foto_perfil_sobre {
+        flex: 0 0 100%;
+        width: 160px;
+    }
+}
+
+/* =========================================================
+   TECNOLOGÍAS
+   ========================================================= */
 #tech-chips {
     margin-top: 10px;
     display: flex;
@@ -411,7 +485,9 @@ body>main {
     border-bottom: 2px solid #404040;
 }
 
-/* -------- PROYECTOS (flex) -------- */
+/* =========================================================
+   PROYECTOS
+   ========================================================= */
 #proyectos-grid {
     margin-top: 12px;
     display: flex;
@@ -419,9 +495,10 @@ body>main {
     gap: 14px;
 }
 
-/* Tarjetas como mini-ventanas */
+/* Tarjetas */
 .proyecto-card {
     width: 320px;
+
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -434,13 +511,13 @@ body>main {
     border-bottom: 2px solid #404040;
 
     padding: 0;
-    /* padding por partes */
 }
 
 /* Titlebar dentro del article */
 .proyecto-header {
     background: #000080;
     color: #ffffff;
+
     padding: 5px 8px;
 
     display: flex;
@@ -458,7 +535,7 @@ body>main {
     opacity: 0.95;
 }
 
-/* Contenido interno */
+/* Partes internas */
 .proyecto-media,
 .proyecto-body,
 .proyecto-footer {
@@ -511,6 +588,7 @@ body>main {
 
 .proyecto-footer {
     margin-top: auto;
+
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -519,90 +597,20 @@ body>main {
     border-top: 1px solid #808080;
 }
 
-/* -------- FOOTER PRINCIPAL -------- */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 body>footer {
-    max-width: 1100px;
     margin: 0 auto 16px auto;
-    background: #c0c0c0;
-
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-
     padding: 10px;
+
     text-align: center;
     font-size: 12px;
 }
 
 /* =========================================================
-   SOBRE MÍ: texto a la izquierda + imagen a la derecha (FLEX)
-   - Sin tocar el HTML
-   - Sobreescribe el float anterior
+   ACCESIBILIDAD: reducir movimiento
    ========================================================= */
-
-#sobre-mi {
-    display: flex;
-    flex-wrap: wrap;
-    /* si no cabe, baja a la siguiente línea */
-    align-items: flex-start;
-    gap: 16px;
-}
-
-/* La barra "Sobre mí" ocupa todo el ancho */
-#sobre-mi h2 {
-    flex: 0 0 100%;
-}
-
-/* El texto ocupa el espacio disponible */
-#sobre-mi p {
-    flex: 1 1 600px;
-    /* ajusta el ancho mínimo del texto */
-    margin: 0;
-}
-
-/* Solo la imagen de "Sobre mí" (no la del banner) */
-#sobre-mi #foto_perfil {
-    flex: 0 0 180px;
-    /* ancho fijo de la imagen */
-    width: 180px;
-
-    float: none;
-    /* anula tu float anterior */
-    margin: 0;
-    /* anula márgenes del float */
-}
-
-/* Responsive: en pantallas chicas, que la imagen baje */
-@media (max-width: 700px) {
-    #sobre-mi #foto_perfil {
-        flex: 0 0 100%;
-        width: 160px;
-        /* tamaño cuando baja */
-    }
-}
-
-#datos_principales h2 {
-    font-size: 30px;
-    font-weight: 900;
-    display: inline-block;
-    animation: h2-pop 0.9s ease-out 1 both;
-    font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
-}
-
-@keyframes h2-pop {
-    from {
-        transform: translateY(4px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Accesibilidad */
 @media (prefers-reduced-motion: reduce) {
     #datos_principales h2 {
         animation: none;

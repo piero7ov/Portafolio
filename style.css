@@ -22,13 +22,11 @@ body {
 
     /* Fondo escritorio con imagen */
     background-color: #008080;
-    /* respaldo */
     background-image: url("img/fondo.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
-
     color: #000000;
 }
 
@@ -184,7 +182,6 @@ body>header h1 {
     font-size: 14px;
     font-weight: bold;
     padding: 0;
-    /* controlado por #titlebar */
 }
 
 /* Titlebar con logo */
@@ -312,9 +309,7 @@ body>header h1 {
 #foto_perfil_sobre {
     flex: 0 0 180px;
     width: 180px;
-
-    /* redondeo solo aquí (si lo quieres) */
-    border-radius: 5px;
+    border-radius: 15px;
     overflow: hidden;
 }
 
@@ -476,7 +471,7 @@ body>main {
 
 .tech-chip {
     background: #c0c0c0;
-    font-size: 12px;
+    font-size: 15px;
     padding: 4px 8px;
 
     border-top: 2px solid #ffffff;

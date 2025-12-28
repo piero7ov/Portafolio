@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startTypewriter(typingTextEl, techWheel);
     }
 
-    // Cursor parpadeante (opcional, pero queda bacán)
+    // Cursor parpadeante
     if (typingCursorEl) {
         setInterval(() => {
             typingCursorEl.style.visibility =

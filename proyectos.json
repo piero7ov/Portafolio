@@ -13,7 +13,7 @@
         {
             "titulo": "Currículum (web)",
             "fecha_de_creacion": "2025-11-08",
-            "descripcion": "Currículum web personal con información y enlaces (proyecto para publicar como página).",
+            "descripcion": "Currículum web personal con información y enlaces de manera dinámica.",
             "tecnologias": [
                 "HTML",
                 "CSS",
@@ -35,7 +35,7 @@
             "enlace_al_repositorio": "https://github.com/piero7ov/Gestor-con-Sqlite"
         },
         {
-            "titulo": "Simulacro Proyecto Intermodular (Tienda Flask)",
+            "titulo": "Tienda deportiva con Flask",
             "fecha_de_creacion": "2025-11-09",
             "descripcion": "Proyecto desarrollado con Flask y SQLite3 que simula el frontend dinámico de una tienda deportiva online.",
             "tecnologias": [

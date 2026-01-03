@@ -139,7 +139,7 @@ function llenarSelectTecnologias(lista) {
     // OJO: tu HTML ya trae la opción "Todas las tecnologías"
     // Entonces solo agregamos las demás
 
-    // sacar tecnologías únicas (sin Set, simple)
+    // sacar tecnologías únicas
     let unicas = [];
 
     lista.forEach(function (p) {

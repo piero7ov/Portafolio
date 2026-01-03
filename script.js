@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const typingTextEl = document.getElementById("typing-text");
     const typingCursorEl = document.getElementById("typing-cursor");
 
-    // Lista inicial (luego la podremos sacar del proyectos.json)
+    // Lista inicial
     const techWheel = [
         "Piero Olivares — Web dev en formación",
         "HTML • CSS • JavaScript",
@@ -141,27 +141,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function waitForEnter() {
         return new Promise((resolve) => {
-            bootStatus.textContent = "Press ENTER to continue...";
+            let done = false;
+
+            const baseText = "Press ENTER (o toca la pantalla) to continue...";
+
+            bootStatus.textContent = baseText;
 
             let showCursor = true;
             const cursorTimer = setInterval(() => {
                 showCursor = !showCursor;
                 bootStatus.textContent = showCursor
-                    ? "Press ENTER to continue... _"
-                    : "Press ENTER to continue...  ";
+                    ? baseText + " _"
+                    : baseText + "  ";
             }, 350);
+
+            function finish() {
+                if (done) return;
+                done = true;
+
+                clearInterval(cursorTimer);
+                document.removeEventListener("keydown", onKeyDown);
+
+                // Tap / click en el splash
+                bootScreen.removeEventListener("click", onTap);
+                bootScreen.removeEventListener("touchstart", onTap);
+
+                resolve();
+            }
 
             function onKeyDown(e) {
                 if (e.key === "Enter") {
-                    clearInterval(cursorTimer);
-                    document.removeEventListener("keydown", onKeyDown);
-                    resolve();
+                    finish();
                 }
             }
 
+            function onTap() {
+                finish();
+            }
+
             document.addEventListener("keydown", onKeyDown);
+
+            // Click/tap para móvil (y también funciona en PC si alguien hace click)
+            bootScreen.addEventListener("click", onTap);
+            bootScreen.addEventListener("touchstart", onTap, { passive: true });
         });
     }
+
 
     /* =========================================================
        TYPEWRITER (funciones)

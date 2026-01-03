@@ -1,6 +1,8 @@
 /* =========================================================
    clon.js
    - Render + filtros (simple)
+   - Tech chips dinámicos
+   - Botón "Detalles" abre el README del repo
    ========================================================= */
 
 let origen = document.querySelector("#tpl-proyecto");
@@ -39,7 +41,7 @@ fetch("proyectos.json")
             buscador.value = "";
             filtroTec.value = "";
             orden.value = "reciente";
-            render(listaOriginal);
+            aplicarFiltros(); // mejor que render(listaOriginal) para respetar el orden
         });
     })
     .catch(function (error) {
@@ -76,6 +78,19 @@ function render(lista) {
 
         // repo
         clon.querySelector(".btn-repo").setAttribute("href", dato.enlace_al_repositorio);
+
+        // detalles -> abre README del repo
+        let btnDetalles = clon.querySelector(".btn-detalles");
+
+        if (btnDetalles) {
+            if (dato.enlace_al_repositorio) {
+                btnDetalles.addEventListener("click", function () {
+                    window.open(enlaceReadme(dato.enlace_al_repositorio), "_blank", "noopener,noreferrer");
+                });
+            } else {
+                btnDetalles.disabled = true;
+            }
+        }
 
         destino.appendChild(clon);
     });
@@ -192,9 +207,19 @@ function llenarTechChips(lista) {
     // crear chips
     unicas.forEach(function (t) {
         let chip = document.createElement("span");
-        chip.className = "tech-chip";  // <- CADA TECNOLOGÍA ES UN TECH CHIP
+        chip.className = "tech-chip"; // <- CADA TECNOLOGÍA ES UN TECH CHIP
         chip.textContent = t;
 
         techChips.appendChild(chip);
     });
 }
+
+/* =========================================================
+   ENLACE DIRECTO A README (GitHub)
+   - Usa enlace_al_repositorio y agrega #readme
+   ========================================================= */
+function enlaceReadme(repoUrl) {
+    if (!repoUrl) return "";
+    return repoUrl.replace(/\/$/, "") + "#readme";
+}
+

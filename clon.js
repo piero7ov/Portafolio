@@ -10,6 +10,7 @@ let buscador = document.querySelector("#buscador");
 let filtroTec = document.querySelector("#filtro-tecnologia");
 let orden = document.querySelector("#orden");
 let btnLimpiar = document.querySelector("#btn-limpiar");
+let techChips = document.querySelector("#tech-chips");
 
 let listaOriginal = []; // aquí guardamos TODOS los proyectos
 
@@ -22,6 +23,9 @@ fetch("proyectos.json")
 
         // 1) llenar select tecnologías
         llenarSelectTecnologias(listaOriginal);
+
+        // 1.1) llenar tech chips dinámicos
+        llenarTechChips(listaOriginal);
 
         // 2) render inicial
         render(listaOriginal);
@@ -46,7 +50,6 @@ fetch("proyectos.json")
    RENDER
    ========================================================= */
 function render(lista) {
-    // borra lo que haya (incluye los mocks del HTML)
     destino.innerHTML = "";
 
     lista.forEach(function (dato) {
@@ -159,5 +162,39 @@ function llenarSelectTecnologias(lista) {
         opt.value = t;
         opt.textContent = t;
         filtroTec.appendChild(opt);
+    });
+}
+
+/* =========================================================
+   TECH CHIPS (DINÁMICO DESDE JSON)
+   ========================================================= */
+function llenarTechChips(lista) {
+    // Si no existe el contenedor, no hacemos nada
+    if (!techChips) return;
+
+    // Limpiar chips mock (los del HTML)
+    techChips.innerHTML = "";
+
+    // sacar tecnologías únicas
+    let unicas = [];
+
+    lista.forEach(function (p) {
+        p.tecnologias.forEach(function (t) {
+            if (!unicas.includes(t)) {
+                unicas.push(t);
+            }
+        });
+    });
+
+    // ordenar alfabético
+    unicas.sort();
+
+    // crear chips
+    unicas.forEach(function (t) {
+        let chip = document.createElement("span");
+        chip.className = "tech-chip";  // <- CADA TECNOLOGÍA ES UN TECH CHIP
+        chip.textContent = t;
+
+        techChips.appendChild(chip);
     });
 }

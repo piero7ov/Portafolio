@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return new Promise((resolve) => {
             let done = false;
 
-            const baseText = "Press ENTER (o toca la pantalla) to continue...";
+            const baseText = "Press ENTER (or touch the screen) to continue...";
 
             bootStatus.textContent = baseText;
 

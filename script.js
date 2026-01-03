@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "Automatización • Scripts • Herramientas"
     ];
 
-
     if (typingTextEl) {
         startTypewriter(typingTextEl, techWheel);
     }
@@ -73,9 +72,28 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =========================================================
        Helpers CMD
        ========================================================= */
+
+    // Dispara la animación del H2 cuando el boot ya no tapa la pantalla
+    function triggerH2Pop() {
+        const h2Titulo = document.querySelector("#datos_principales h2");
+        if (!h2Titulo) return;
+
+        // Reinicia la animación aunque ya se haya aplicado antes
+        h2Titulo.classList.remove("h2-pop-run");
+        void h2Titulo.offsetWidth; // fuerza reflow
+        h2Titulo.classList.add("h2-pop-run");
+    }
+
     function hideBoot() {
         bootScreen.classList.add("hidden");
         bootScreen.setAttribute("aria-hidden", "true");
+
+        // Espera a que el navegador "pinte" el ocultado del boot y luego anima el h2
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                triggerH2Pop();
+            });
+        });
     }
 
     function sleep(ms) {
@@ -186,7 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
             bootScreen.addEventListener("touchstart", onTap, { passive: true });
         });
     }
-
 
     /* =========================================================
        TYPEWRITER (funciones)

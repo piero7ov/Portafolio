@@ -236,7 +236,16 @@ body>header h1 {
     display: inline-block;
     font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
 
-    animation: h2-pop 0.9s ease-out 1 both;
+    /* IMPORTANTE:
+       - Quitamos la animación automática al cargar,
+         porque se ejecuta "detrás" del boot-screen y no se ve.
+       - La animación se disparará desde JS con la clase .h2-pop-run
+    */
+}
+
+/* Clase que JS agrega cuando el boot ya se cerró */
+.h2-pop-run {
+    animation: h2-pop 1.2s ease-out 1 both;
 }
 
 @keyframes h2-pop {
@@ -607,7 +616,7 @@ body>footer {
    ACCESIBILIDAD: reducir movimiento
    ========================================================= */
 @media (prefers-reduced-motion: reduce) {
-    #datos_principales h2 {
+    .h2-pop-run {
         animation: none;
     }
 }

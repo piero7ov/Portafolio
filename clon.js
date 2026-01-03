@@ -3,6 +3,7 @@
    - Render + filtros (simple)
    - Tech chips dinámicos
    - Botón "Detalles" abre el README del repo
+   - (Extra) Deja data-* en la imagen para que modal.js la abra
    ========================================================= */
 
 let origen = document.querySelector("#tpl-proyecto");
@@ -60,8 +61,14 @@ function render(lista) {
         clon.querySelector(".proyecto-titulo").textContent = dato.titulo;
         clon.querySelector(".proyecto-fecha").textContent = dato.fecha_de_creacion;
 
-        clon.querySelector(".proyecto-img").setAttribute("src", dato.imagen);
-        clon.querySelector(".proyecto-img").setAttribute("alt", "Captura de " + dato.titulo);
+        // imagen
+        let img = clon.querySelector(".proyecto-img");
+        img.setAttribute("src", dato.imagen);
+        img.setAttribute("alt", "Captura de " + dato.titulo);
+
+        // (para modal.js) datos extra en la imagen
+        img.setAttribute("data-full", dato.imagen);
+        img.setAttribute("data-title", dato.titulo);
 
         clon.querySelector(".proyecto-descripcion").textContent = dato.descripcion;
 

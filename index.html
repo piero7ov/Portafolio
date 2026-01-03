@@ -182,7 +182,7 @@
                 </header>
 
                 <div class="proyecto-media">
-                    <img class="proyecto-img" src="" alt="" />
+                    <img class="proyecto-img" src="" alt="" loading="lazy" decoding="async" />
                 </div>
 
                 <div class="proyecto-body">
@@ -208,6 +208,25 @@
     </footer>
     <script src="script.js"></script>
     <script src="clon.js"></script>
+    <script src="modal.js"></script>
+    <!-- =========================================================
+     MODAL IMAGEN (simple)
+     ========================================================= -->
+    <section id="modal-img" class="hidden" aria-hidden="true" role="dialog" aria-modal="true">
+        <div id="modal-img-ventana">
+            <header id="modal-img-header">
+                <p id="modal-img-titulo">Imagen</p>
+                <button type="button" id="modal-img-cerrar" class="btn">X</button>
+            </header>
+
+            <div id="modal-img-body">
+                <div id="modal-img-wrap">
+                    <img id="modal-img-ver" src="" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
 
 </html>

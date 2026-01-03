@@ -619,11 +619,18 @@ body>footer {
     position: fixed;
     inset: 0;
     z-index: 9998;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: 12px;
     background: rgba(0, 0, 0, 0.65);
+}
+
+/* Refuerzo: si tiene .hidden, que se oculte sí o sí */
+#modal-img.hidden {
+    display: none !important;
 }
 
 #modal-img-ventana {
@@ -640,6 +647,7 @@ body>footer {
     padding: 6px 8px;
     background: #000080;
     color: #ffffff;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -666,4 +674,11 @@ body>footer {
     height: 100%;
     object-fit: contain;
     /* para verla completa */
+}
+
+/* =========================================================
+   UX: indicar que la imagen se puede ampliar
+   ========================================================= */
+.proyecto-img {
+    cursor: zoom-in;
 }

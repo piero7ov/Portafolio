@@ -163,10 +163,15 @@
             "titulo": "Pierodev Assets (GitHub Pages)",
             "fecha_de_creacion": "2026-01-07",
             "descripcion": "Biblioteca online de assets (logos, banners y destacados) publicada con GitHub Pages. Incluye galería minimal con buscador y filtros, y botones para copiar URL, snippet <img> y CSS (background) para reutilizar en webs y correos HTML (SMTP).",
-            "tecnologias": ["HTML", "CSS", "JavaScript", "JSON", "GitHub Pages"],
+            "tecnologias": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "JSON",
+                "GitHub Pages"
+            ],
             "imagen": "https://piero7ov.github.io/pierodev-assets/brand/pierodev/logos/logo.png",
             "enlace_al_repositorio": "https://github.com/piero7ov/pierodev-assets"
         }
-
     ]
 }
